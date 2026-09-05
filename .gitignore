@@ -1,0 +1,12 @@
+# Local Python environments
+matrix_env/
+.venv/
+venv/
+
+# Generated exercise output
+matrix_analysis.png
+
+# Local subject and workspace files
+py_08.pdf
+__pycache__/
+*.py[cod]

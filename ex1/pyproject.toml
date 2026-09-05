@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "matrix-loading-programs"
+version = "0.1.0"
+description = "Matrix data analysis exercise"
+authors = ["Student <student@example.com>"]
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.10"
+pandas = "*"
+numpy = "*"
+matplotlib = "*"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

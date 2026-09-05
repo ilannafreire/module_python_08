@@ -6,12 +6,14 @@ import sys
 def construct() -> None:
     """Display information about the Python environment."""
     virtual_env = os.environ.get("VIRTUAL_ENV")
+    is_virtual_env = sys.prefix != sys.base_prefix
 
-    if virtual_env:
+    if is_virtual_env:
+        environment_path = virtual_env or sys.prefix
         print("\nMATRIX STATUS: Welcome to the construct\n")
         print(f"Current Python: {sys.executable}")
-        print(f"Virtual Environment: {os.path.basename(virtual_env)}")
-        print(f"Environment Path: {virtual_env}\n")
+        print(f"Virtual Environment: {os.path.basename(environment_path)}")
+        print(f"Environment Path: {environment_path}\n")
 
         print("SUCCESS: You're in an isolated environment!")
         print("Safe to install packages without affecting")
@@ -23,6 +25,8 @@ def construct() -> None:
         print("\nMATRIX STATUS: You're still plugged in\n")
         print(f"Current Python: {sys.executable}")
         print("Virtual Environment: None detected\n")
+        print("Global package installation path:")
+        print(site.getsitepackages()[0])
 
         print("WARNING: You're in the global environment!")
         print("The machines can see everything you install.\n")
